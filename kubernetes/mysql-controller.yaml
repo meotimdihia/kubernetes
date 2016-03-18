@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysql
+  # these labels can be applied automatically 
+  # from the labels in the pod template if not set
+  labels:
+    app: mysql
+    tier: backend
+spec:
+  # this replicas value is default
+  # modify it according to your case
+  replicas: 1
+  # selector can be applied automatically 
+  # from the labels in the pod template if not set
+  # selector:
+  #   app: guestbook
+  #   role: master
+  #   tier: backend
+  template:
+    metadata:
+      labels:
+        app: mysql
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: meotimdihia/plf_mysql:1.0
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+          - containerPort: 3306
+        volumeMounts:
+          # This name must match the volumes.name below.
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+  volumes:
+    - name: mysql-persistent-storage
+      gcePersistentDisk:
+        # This disk must already exist.
+        pdName: mysql-disk
+        fsType: ext4

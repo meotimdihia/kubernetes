@@ -1,0 +1,47 @@
+version: '2'
+services:
+  php-fpm:
+    build:
+      context: ./php-fpm
+    image: plf_php-fpm:5.6
+    links:
+      - mysql:mysql
+      - redis:redis
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=platform-admin
+      - MYSQL_PASSWORD=platform123
+      - MYSQL_DATABASE=platform
+      - REDIS_HOST=redis            
+    depends_on:
+      - redis
+      - mysql
+    volumes:
+      - ./src/:/var/www/html/
+      - ./php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+  nginx:
+    image: nginx:1.7.10
+    ports:
+      - 8080:80
+    links:
+      - php-fpm:php-fpm
+    volumes_from:
+      - php-fpm
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php-fpm
+  mysql:
+    build:
+      context: ./mysql
+    image: meotimdihia/plf_mysql:5.7
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/import/dump.sql:/tmp/dump.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=platform-admin
+      - MYSQL_PASSWORD=platform123
+      - MYSQL_DATABASE=platform
+  redis:
+    image: redis:3-alpine
