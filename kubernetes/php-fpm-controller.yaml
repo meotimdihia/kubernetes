@@ -7,7 +7,7 @@ metadata:
   labels:
     app: php-fpm
     tier: backend
-spec:z    
+spec: 
   replicas: 3
 
   template:
