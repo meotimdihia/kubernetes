@@ -7,8 +7,8 @@ metadata:
   labels:
     app: redis
     tier: backend
+spec:    
   replicas: 3
-
   template:
     metadata:
       labels:
