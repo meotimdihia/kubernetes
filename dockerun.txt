@@ -1,7 +1,7 @@
-docker run -d -v /c/Users/meotimdihia/docker/d/:/var/www/html/ -v /c/Users/meotimdihia/docker/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf  --link mysql:mysql --link redis:redis --name php-fpm php-fpm:5.6
-
-docker run -d -p 8080:80 --volumes-from php-fpm  -v /c/Users/meotimdihia/docker/nginx/nginx.conf:/etc/nginx/nginx.conf --link php-fpm:php-fpm --name nginx mynginx
-
 docker run -v /c/Users/meotimdihia/docker/mysql/data:/var/lib/mysql -v /c/Users/meotimdihia/docker/mysql/import/dump.sql:/tmp/dump.sql --name mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_USER=platform-admin -e MYSQL_PASSWORD=platform123 -e MYSQL_DATABASE=platform -d p_mysql:5.7
 
 docker run --name redis -d redis:3-alpine
+
+docker run -d -v /c/Users/meotimdihia/docker/d/:/var/www/html/ -v /c/Users/meotimdihia/docker/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf  --link mysql:mysql --link redis:redis --name php-fpm php-fpm:5.6
+
+docker run -d -p 8080:80 --volumes-from php-fpm  -v /c/Users/meotimdihia/docker/nginx/nginx.conf:/etc/nginx/nginx.conf --link php-fpm:php-fpm --name nginx mynginx
