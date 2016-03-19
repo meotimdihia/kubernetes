@@ -5,8 +5,7 @@ metadata:
   # these labels can be applied automatically 
   # from the labels in the pod template if not set
   labels:
-    app: mysql
-    tier: backend
+    name: mysql
 spec:
   # this replicas value is default
   # modify it according to your case
@@ -20,11 +19,10 @@ spec:
   template:
     metadata:
       labels:
-        app: mysql
-        tier: backend
+        name: mysql
     spec:
       containers:
-      - name: master
+      - name: mysql
         image: meotimdihia/plf_mysql:1.0
         resources:
           requests:

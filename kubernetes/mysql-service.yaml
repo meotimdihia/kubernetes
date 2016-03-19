@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: mysql
   labels:
-    app: mysql
-    tier: backend
+    name: mysql
 spec:
   ports:
   - port: 3306
   selector:
-    app: mysql
-    tier: backend
+    name: mysql

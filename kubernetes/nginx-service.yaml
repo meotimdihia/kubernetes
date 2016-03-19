@@ -3,12 +3,10 @@ kind: Service
 metadata:
   name: nginx
   labels:
-    app: nginx
-    tier: backend
+    name: nginx
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: nginx
-    tier: backend
+    name: nginx

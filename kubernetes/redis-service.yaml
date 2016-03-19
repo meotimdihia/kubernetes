@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: redis
   labels:
-    app: redis
-    tier: backend
+    name: redis
 spec:
   ports:
   - port: 6379
   selector:
-    app: redis
-    tier: backend
+    name: redis

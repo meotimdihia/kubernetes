@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: php-fpm
   labels:
-    app: php-fpm
-    tier: backend
+    name: php-fpm
 spec:
   ports:
   - port: 9000
   selector:
-    app: php-fpm
-    tier: backend
+    name: php-fpm

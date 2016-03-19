@@ -5,16 +5,14 @@ metadata:
   # these labels can be applied automatically 
   # from the labels in the pod template if not set
   labels:
-    app: redis
-    tier: backend
+    name: redis
 spec:    
   replicas: 3
   template:
     metadata:
       labels:
-        app: redis
-        tier: backend
+        name: redis
     spec:
       containers:
-      - name: master
+      - name: redis
         image:  redis:3-alpine

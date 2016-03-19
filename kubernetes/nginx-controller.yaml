@@ -5,19 +5,17 @@ metadata:
   # these labels can be applied automatically 
   # from the labels in the pod template if not set
   labels:
-    app: nginx
-    tier: frontend
+    name: nginx
 spec:    
   replicas: 3
 
   template:
     metadata:
       labels:
-        app: nginx
-        tier: frontend
+        name: nginx
     spec:
       containers:
-      - name: master
+      - name: nginx
         image: nginx:1.7.10
         ports:
         - containerPort: 80

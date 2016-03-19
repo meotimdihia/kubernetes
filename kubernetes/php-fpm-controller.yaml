@@ -5,19 +5,17 @@ metadata:
   # these labels can be applied automatically 
   # from the labels in the pod template if not set
   labels:
-    app: php-fpm
-    tier: backend
+    name: php-fpm
 spec: 
   replicas: 3
 
   template:
     metadata:
       labels:
-        app: nginx
-        tier: backend
+        name: php-fpm
     spec:
       containers:
-      - name: master
+      - name: php-fpm
         image:  meotimdihia/plf_php-fpm:1.0.3
         env:
         - name: MYSQL_HOST
