@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: disks
+spec:
+  containers:
+  - name: disks
+    image: busybox
+    
+    volumeMounts:
+    - mountPath: /mnt/nginx
+      name: nginx-persistent-storage
+  volumes:
+    - name: nginx-persistent-storage
+      gcePersistentDisk:
+        # This disk must already exist.
+        pdName: nginx
+        fsType: ext4
