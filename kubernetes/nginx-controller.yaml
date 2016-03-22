@@ -9,11 +9,12 @@ metadata:
 spec:    
   replicas: 3
   selector: 
-      name: nginx-v1
+      app: nginx-v1
+      scope: frontend
   template:
     metadata:
       labels:
-        name: nginx
+        app: nginx-v1
     spec:
       containers:
       - name: nginx
