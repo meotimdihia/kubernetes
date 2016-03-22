@@ -7,8 +7,9 @@ metadata:
   labels:
     name: nginx
 spec:    
-  replicas: 3
-
+  replicas: 3,
+  selector: 
+      name: nginx-v1
   template:
     metadata:
       labels:
