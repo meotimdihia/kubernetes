@@ -24,9 +24,9 @@ spec:
           # This name must match the volumes.name below.
           - name: nginx-persistent-storage
             mountPath: /var/www/html/
+            readOnly: true
       volumes:
         - name: nginx-persistent-storage
-          readOnly: true
           gcePersistentDisk:
             # This disk must already exist.
             pdName: nginx
