@@ -7,7 +7,6 @@ metadata:
   labels:
     name: redis
 spec:    
-  replicas: 3
   template:
     metadata:
       labels:
