@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: disks
-    image: busybox
+    image: ubuntu:14.04
     
     volumeMounts:
     - mountPath: /mnt/nginx
