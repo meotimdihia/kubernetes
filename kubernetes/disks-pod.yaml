@@ -8,11 +8,13 @@ spec:
     image: ubuntu:14.04
     
     volumeMounts:
-    - mountPath: /mnt/nginx
+    - mountPath: /tmp
       name: nginx-persistent-storage
   volumes:
     - name: nginx-persistent-storage
       gcePersistentDisk:
         # This disk must already exist.
+        hostPath:
+          path: 
         pdName: nginx
         fsType: ext4
