@@ -8,11 +8,11 @@ spec:
     image: ubuntu:14.04
     
     volumeMounts:
-    - mountPath: /tmp
-      name: mysql-persistent-storage
+    - name: mysql-persistent-storage
+      mountPath: /tmp
   volumes:
     - name: mysql-persistent-storage
       gcePersistentDisk:
         # This disk must already exist.
-        pdName: mysql
+        pdName: mysql-disk
         fsType: ext4
