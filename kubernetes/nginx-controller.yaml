@@ -26,8 +26,6 @@ spec:
               mountPath: /var/www/html/
       volumes:
         - name: nginx-persistent-storage
-          hostPath:
-            path: /data/platform-source/
           gcePersistentDisk:
             # This disk must already exist.
             pdName: nginx
