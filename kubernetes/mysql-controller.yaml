@@ -24,6 +24,8 @@ spec:
       containers:
       - name: mysql
         image: meotimdihia/plf_mysql:1.0
+        args:
+          - --ignore-db-dir=lost+found
         resources:
           requests:
             cpu: 100m
