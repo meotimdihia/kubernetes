@@ -31,7 +31,7 @@ spec:
           volumeMounts:
             # This name must match the volumes.name below.
             - name: nginx-persistent-storage
-              mountPath: /var/www/html/
+              mountPath: /var/log
       volumes:
         - name: nginx-persistent-storage
           gcePersistentDisk:
