@@ -15,16 +15,27 @@ spec:
         name: php-fpm
     spec:
       containers:
-      - name: php-fpm
-        image:  meotimdihia/plf_php-fpm:1.0.3
-        env:
-        - name: MYSQL_HOST
-          value: mysql
-        - name: MYSQL_USER
-          value: platform-admin
-        - name: MYSQL_PASSWORD
-          value: platform123
-        - name: MYSQL_DATABASE
-          value: platform
-        - name: REDIS_HOST
-          value: redis
+        - name: php-fpm
+          image:  meotimdihia/plf_php-fpm:1.0.3
+          env:
+          - name: MYSQL_HOST
+            value: mysql
+          - name: MYSQL_USER
+            value: platform-admin
+          - name: MYSQL_PASSWORD
+            value: platform123
+          - name: MYSQL_DATABASE
+            value: platform
+          - name: REDIS_HOST
+            value: redis
+          volumeMounts:
+            # This name must match the volumes.name below.
+            - name: nginx-persistent-storage
+              mountPath: /var/www/html/
+      volumes:
+        - name: nginx-persistent-storage
+          gcePersistentDisk:
+            # This disk must already exist.
+            pdName: nginx
+            fsType: ext4
+            readOnly: true
