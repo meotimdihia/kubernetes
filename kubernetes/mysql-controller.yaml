@@ -36,6 +36,15 @@ spec:
             # This name must match the volumes.name below.
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: admin
+            - name: MYSQL_USER
+              value: platform-admin
+            - name: MYSQL_PASSWORD
+              value: platform123
+            - name: MYSQL_DATABASE
+              value: platform
       volumes:
         - name: mysql-persistent-storage
           gcePersistentDisk:
