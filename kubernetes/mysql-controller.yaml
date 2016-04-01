@@ -32,10 +32,6 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 3306
-          volumeMounts:
-            # This name must match the volumes.name below.
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: admin
@@ -45,6 +41,10 @@ spec:
               value: platform123
             - name: MYSQL_DATABASE
               value: platform
+          volumeMounts:
+            # This name must match the volumes.name below.
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
       volumes:
         - name: mysql-persistent-storage
           gcePersistentDisk:

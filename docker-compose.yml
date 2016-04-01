@@ -17,7 +17,7 @@ services:
       - redis
       - mysql
     volumes:
-      - ./src/:/var/www/html/
+      - ../src/:/var/www/html/
       - ./php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
   nginx:
     image: nginx:1.7.10
