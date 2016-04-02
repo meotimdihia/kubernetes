@@ -4,7 +4,7 @@ metadata:
   name: platform-code
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadOnlyMany
   resources:
     requests:
       storage: 8Gi
