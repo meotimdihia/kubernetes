@@ -34,5 +34,8 @@ spec:
               mountPath: /var/www/html/
       volumes:
         - name: nginx-persistent-storage
-          persistentVolumeClaim:
-            claimName: platform-code
+          gcePersistentDisk:
+            # This disk must already exist.
+            pdName: nginx
+            fsType: ext4
+            readOnly: true
