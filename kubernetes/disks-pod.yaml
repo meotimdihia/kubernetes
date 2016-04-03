@@ -8,11 +8,11 @@ spec:
     image: ubuntu:14.04
     
     volumeMounts:
-    - name: mysql-persistent-storage
-      mountPath: /tmp
+    - name: nginx-persistent-storage
+      mountPath: /nginx
   volumes:
     - name: mysql-persistent-storage
       gcePersistentDisk:
         # This disk must already exist.
-        pdName: mysql-disk
+        pdName: nginx
         fsType: ext4
