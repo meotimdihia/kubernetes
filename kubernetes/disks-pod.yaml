@@ -10,9 +10,16 @@ spec:
     volumeMounts:
     - name: nginx-persistent-storage
       mountPath: /nginx
-  volumes:
     - name: mysql-persistent-storage
+      mountPath: /nginx
+  volumes:
+    - name: nginx-persistent-storage
       gcePersistentDisk:
         # This disk must already exist.
         pdName: nginx
         fsType: ext4
+    - name: mysql-persistent-storage
+      gcePersistentDisk:
+        # This disk must already exist.
+        pdName: nginx
+        fsType: ext4        
