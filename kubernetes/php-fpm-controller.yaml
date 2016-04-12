@@ -30,10 +30,10 @@ spec:
             value: redis
           volumeMounts:
             # This name must match the volumes.name below.
-            - name: nginx-persistent-storage
+            - name: php-fpm-pv
               mountPath: /var/www/html/
       volumes:
-        - name: nginx-persistent-storage
+        - name: php-fpm-pv
           persistentVolumeClaim:
-            claimName: platform-code
+            claimName: php-fpm-volume
             readOnly: true

@@ -1,10 +1,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: platform-code
+  name: mysql-volume
 spec:
   accessModes:
     - ReadOnlyMany
   resources:
     requests:
-      storage: 8Gi
+      storage: 5Gi
