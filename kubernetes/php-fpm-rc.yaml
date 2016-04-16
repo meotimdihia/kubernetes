@@ -35,5 +35,5 @@ spec:
       volumes:
         - name: php-fpm-pv
           persistentVolumeClaim:
-            claimName: php-fpm-volume
+            claimName: php-fpm-pv
             readOnly: true

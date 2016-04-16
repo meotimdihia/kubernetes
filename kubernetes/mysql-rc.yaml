@@ -48,5 +48,4 @@ spec:
       volumes:
         - name: mysql-pv
           persistentVolumeClaim:
-            claimName: mysql-volume
-            readOnly: true
+            claimName: mysql-pv
