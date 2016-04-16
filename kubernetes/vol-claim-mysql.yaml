@@ -1,10 +1,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: php-fpm-volume
+  name: mysql-volume
 spec:
   accessModes:
     - ReadOnlyMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi

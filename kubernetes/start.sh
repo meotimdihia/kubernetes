@@ -1,4 +1,5 @@
-gcloud compute disks create disk20 --size=20GB --zone=asia-east1-b
+gcloud compute disks create disk-php-fpm --size=3GB --zone=asia-east1-b
+gcloud compute disks create disk-mysql --size=2GB --zone=asia-east1-b
 
 
 kubectl create -f volume-readonlymany.yaml

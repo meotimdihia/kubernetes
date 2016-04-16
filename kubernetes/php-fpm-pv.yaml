@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv01
+  name: php-fpm-pv
 spec:
   capacity:
     storage: 20Gi
@@ -10,5 +10,5 @@ spec:
   persistentVolumeReclaimPolicy: Recycle
   gcePersistentDisk:
     # This disk must already exist.
-    pdName: nginx
+    pdName: disks20
     fsType: ext4
