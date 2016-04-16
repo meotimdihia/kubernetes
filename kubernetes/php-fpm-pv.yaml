@@ -7,7 +7,7 @@ spec:
     storage: 3Gi
   accessModes:
     - ReadOnlyMany
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Delete 
   gcePersistentDisk:
     # This disk must already exist.
     pdName: disk-php-fpm
