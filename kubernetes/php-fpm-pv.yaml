@@ -4,11 +4,11 @@ metadata:
   name: php-fpm-pv
 spec:
   capacity:
-    storage: 20Gi
+    storage: 3Gi
   accessModes:
     - ReadOnlyMany
   persistentVolumeReclaimPolicy: Recycle
   gcePersistentDisk:
     # This disk must already exist.
-    pdName: disks20
+    pdName: disk-php-fpm
     fsType: ext4
