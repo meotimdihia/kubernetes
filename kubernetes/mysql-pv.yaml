@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 2Gi
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce 
   persistentVolumeReclaimPolicy: Delete 
   gcePersistentDisk:
     # This disk must already exist.
