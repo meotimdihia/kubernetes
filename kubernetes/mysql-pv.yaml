@@ -7,7 +7,7 @@ spec:
     storage: 2Gi
   accessModes:
     - ReadOnlyMany
-  persistentVolumeReclaimPolicy: Delete 
+  # persistentVolumeReclaimPolicy: Delete 
   gcePersistentDisk:
     # This disk must already exist.
     pdName: disk-mysql
